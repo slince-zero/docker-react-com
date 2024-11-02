@@ -6,6 +6,14 @@ services:
   # redis数据库
   redis:
     image: 'redis:4-alpine'
+  # nginx
+  ngxin:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3030:80'
   # Express 服务器
   api:
     build:
